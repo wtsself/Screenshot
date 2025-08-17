@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/ico/icon.ico</file>
+        <file>res/img/cancel.png</file>
+        <file>res/img/circle.png</file>
+        <file>res/img/finish.png</file>
+        <file>res/img/pen.png</file>
+        <file>res/img/rect.png</file>
+        <file>res/img/save.png</file>
+        <file>res/img/text.png</file>
+        <file>res/img/undo.png</file>
+        <file>res/img/init.png</file>
+    </qresource>
+</RCC>
