@@ -3,23 +3,19 @@
 
 #include <QWidget>
 #include <QRect>
+#include <QPixmap>
 #include "screentoolbar.h"
-#include"textoverlay.h"
+#include "textoverlay.h"
 
 class CatchScreenWidget : public QWidget
 {
     Q_OBJECT
-    enum class ShapeMode {
-        None,
-        Rect,
-        Ellipse,
-        Text
+    enum class ShapeMode { None, Rect, Ellipse, Text };
 
-    };
 public:
     explicit CatchScreenWidget(QWidget *parent = nullptr);
-     void setTextMode();
-     void keyPressEvent(QKeyEvent *event) override;
+    void setTextMode();
+
 public slots:
     void saveCapture();
     void closewindow();
@@ -32,23 +28,20 @@ protected:
     void mousePressEvent(QMouseEvent *e) override;
     void mouseMoveEvent(QMouseEvent *e) override;
     void mouseReleaseEvent(QMouseEvent *e) override;
+    void keyPressEvent(QKeyEvent *event) override;
 
 signals:
     void captureFinished();
 
 private:
-    TextOverlay *textOverlay;   // 新增文字编辑组件
-
-    QString textInput;
+    TextOverlay *textOverlay;
     ShapeMode currentMode;
-    bool hasSelection;  // 是否存在选区
+    bool hasSelection;
     bool isSelecting;
     QPoint startPoint;
     QRect selectionRect;
     QPixmap fullScreenPixmap;
     ScreenToolBar *toolbar;
-
-
 };
 
-#endif // CATCHSCREENWIDGET_H
+#endif
